@@ -5,12 +5,13 @@ const express = require('express');
 const router = express.Router();
 const axios = require('axios');
 
-//! 7. router => server-side
+//! 7. server-side
 router.get('/', (req, res) => {
-    //* 6. We'll put the axios call inside a route and then hit the route from our client!
+    //! 6. We'll put the axios call inside a route and then hit the route from our client!
     axios
+        //! 12. template literal: inject process.env.VARIABLE
         .get(
-            'api.giphy.com/v1/gifs/trending?api_key=qPEy8DWc2SmzE2jfInuMbKZVjGim5r5k&rating=pg-13'
+            `http://api.giphy.com/v1/gifs/trending?api_key=${process.env.GIPHY_API_KEY}&rating=pg-13`
         )
         .then((response) => {
             console.log(response.data);

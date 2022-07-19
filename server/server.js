@@ -1,5 +1,8 @@
 const express = require('express');
 const app = express();
+//! 10. dotenv
+//! 11. create .env file and created a variable inside
+require('dotenv').config();
 const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 5000;
 
